@@ -29,10 +29,11 @@
 				return resp.json()
 			})
 			.then(function(data) {
-				//data = data[0];
+				data = data[0];
+				console.log(data.user_id)
 				mydiv.innerHTML =  `
 					<div>
-						<p>${data.user_id}</p>
+						<p>${data.user_fullname}</p>
 					</div>
 				`;
 			}).catch(function(err) {

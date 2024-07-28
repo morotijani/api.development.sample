@@ -10,7 +10,7 @@
  	$app = new APP;
  	if (isset($_GET['url'])) {
  		// code...
-		header("Access-Conrol-Allow-Origin: *");
+		header("Access-Control-Allow-Origin: *");
 		header("Content-type: application/json; charset=UTF-8");
 	 	$result = $app->result;
 	 	echo $result;
