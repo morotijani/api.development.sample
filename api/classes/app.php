@@ -20,7 +20,8 @@
 
 
 				if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-					$params = $_POST;
+					$params = file_get_contents('php://input');
+					$params = json_decode($params, true);
 				}
 
 			 	// check if function is callable 
@@ -43,8 +44,14 @@
 
 
 			if (count($params) > 1) {
-				// check if email exist
+
 				$email = $params['user_email'];
+				if (empty($email)) {
+					// code...
+					return '{"error":"Email is required!"}';
+				}
+
+				// check if email exist
 				$data = $this->db->run("SELECT * FROM users WHERE user_email = ? LIMIT 1", [$email]);
 				if (is_array($data)) {
 					return '{"error":"Email, already exist!"}';
@@ -54,7 +61,7 @@
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 					return '{"error":"Invalid, email!"}';
 				}
-				
+
 				$uid = array('user_id' => '121212');
 				$params = array_merge($params, $uid);
 
