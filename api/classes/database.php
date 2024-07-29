@@ -17,7 +17,6 @@
 		public function run($query, $var = []) {
 			$conn = $this->connect();
 			$statement = $conn->prepare($query);
-
 			if ($statement) {
 				// code...
 				$check = $statement->execute($var);
@@ -29,6 +28,7 @@
 						// code...
 						return $data;
 					}
+					return $check;
 				}
 			}
 

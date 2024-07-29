@@ -9,7 +9,7 @@
 
 
 	define("PROOT", "/");
-	define("BASEURL", "/api.development.sample/website/");
+	define("BASEURL", "/api.development.sample/api/");
 
 
 	function dnd($data) {
