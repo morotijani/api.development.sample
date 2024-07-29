@@ -9,6 +9,8 @@
 	<center>
 		<h1>My API</h1>
 		<h3>Documentation</h3>
+
+		<p>// first item in the url is always the table name</p>
 	</center>
 </body>
 </html>
